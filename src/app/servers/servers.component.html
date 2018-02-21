@@ -16,3 +16,9 @@
 <!--<p>{{ serverCreationStatus }}</p>-->
 <p *ngIf="serverCreated">Server was created! Server name is {{ serverName }}</p>
 <app-server *ngFor="let server of servers"></app-server>
+<hr>
+<h4>Assignment starts here</h4>
+<button
+  class="btn btn-primary"
+  (click)="toggleParagraph()">Display Details</button>
+<p [ngClass]="{hide: showText === false}">This is a sample detail {{ showText }}</p>
