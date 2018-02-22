@@ -18,7 +18,14 @@
 <app-server *ngFor="let server of servers"></app-server>
 <hr>
 <h4>Assignment starts here</h4>
+<!--<button
+  class="btn btn-primary"
+  (click)="showText = !showText">Display Details</button>-->
 <button
   class="btn btn-primary"
-  (click)="toggleParagraph()">Display Details</button>
-<p [ngClass]="{hide: showText === false}">This is a sample detail {{ showText }}</p>
+  (click)="onToggleDisplay()">Display Details</button>
+<p *ngIf="showText">This is a sample detail {{ showText }}</p>
+<div
+  *ngFor="let logItem of log"
+  [ngStyle]="{backgroundColor: logItem >= 5 ? 'blue' : 'white'}"
+  [ngClass]="{'white-text': logItem >= 5}"> {{ logItem }} </div>

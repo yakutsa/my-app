@@ -11,7 +11,8 @@ export class ServersComponent implements OnInit {
   serverName = 'Test server';
   serverCreated = false;
   servers = ['Test server', 'Test server 2'];
-  showText = true;
+  showText = false;
+  log = [];
 
   constructor() {
     setTimeout(() => {
@@ -28,12 +29,9 @@ export class ServersComponent implements OnInit {
     this.serverCreationStatus = 'Server was created! Name is ' + this.serverName;
   }
 
-  toggleParagraph() {
-    if (this.showText === true) {
-      this.showText = false;
-    } else {
-      this.showText = true;
-    }
+  onToggleDisplay(){
+    this.showText = !this.showText;
+    this.log.push(this.log.length + 1);
   }
 
   /*onUpdateServerName(event: Event) {
